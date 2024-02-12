@@ -72,7 +72,13 @@ config CPU_FREQ_DEFAULT_GOV_POWERSAVE
 	bool "powersave"
 	select CPU_FREQ_GOV_POWERSAVE
 	help
-	  Use the CPUFreq governor 'powersave' as default. This sets
+	  Use the CPUFreq governor 'powersave' as default. WJH
+
+config CPU_FREQ_DEFAULT_GOV_DARKNESS
+	bool "darkness"
+	select CPU_FREQ_GOV_DARKNESS
+	help
+	  Use the CPUFreq governor 'darkness' as default. This sets
 	  the frequency statically to the lowest frequency supported by
 	  the CPU.
 
@@ -232,7 +238,14 @@ config CPU_FREQ_GOV_CONSERVATIVE
 
 	  For details, take a look at linux/Documentation/cpu-freq.
 
-	  If in doubt, say N.
+	  If in doubt, say N.\
+
+config CPU_FREQ_GOV_DARKNESS
+	tristate "'darkness' governor"
+	help
+	  The cpufreq governor darkness. WJH
+	  To compile this driver as a module, choose M here: the
+	  module will be called cpufreq_darkness.
 
 config CPU_FREQ_GOV_SCHEDUTIL
 	bool "'schedutil' cpufreq policy governor"
